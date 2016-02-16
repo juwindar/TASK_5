@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>UploadImage</title>
+  <title>TASK LIMA</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -40,6 +40,14 @@
       </div>
   </div>
 </div>
+
+ <ul class="pagination pagination-lg">
+  <li><%= link_to '1', new_photo_path %></li>
+  <li><a href="new_session_path">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>
 
 <div class="container">
 	<%= flash[:notice] %>
