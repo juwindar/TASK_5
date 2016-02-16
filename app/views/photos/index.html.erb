@@ -1,0 +1,37 @@
+<style>
+.grid-item {
+  width: 400px;
+  height: 300px
+  }
+.grid-item--width2 {
+ width: 401px;
+ height: 300px
+ }
+</style>
+
+<div class="row">
+	<div class="col-md-12">
+		<% @photos.each do |photo| %>
+			<div class="post col-md-3">
+				<div class="grid-item grid-item--width2"</div>
+				<%= image_tag photo.photo.url, class: "grid-item" %>
+				<div><%= photo.title %></div>
+				<div>
+        <span><%= link_to 'Show', photos_path(photo.id) %></span>
+        <span><%= link_to 'Edit', edit_photo_path(photo.id) %></span>
+        <span><%= link_to 'Destroy', photo_path(photo.id), method: :delete, data: { confirm: 'Are you sure to delete this image?' } %></td>
+      </div>
+      
+    <% end %>
+  </div>
+
+<br>
+<%= javascript_include_tag 'masonry/masonry-docs.min' %>
+
+<script>
+	$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+</script>
