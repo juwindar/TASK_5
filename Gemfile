@@ -10,6 +10,8 @@ gem 'mysql2' , '~> 0.3.18'
 gem 'sqlite3'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'will_paginate', '~> 3.0.6'
+gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'humanizer'
 # Use SCSS for stylesheets

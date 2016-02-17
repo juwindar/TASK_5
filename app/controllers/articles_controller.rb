@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.status_active
     @articles = Article.all
+    @articles = Article.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
@@ -23,7 +24,6 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-
   def show
     @article = Article.find_by_id(params[:id])
     @comments = @article.comments.order("id desc")

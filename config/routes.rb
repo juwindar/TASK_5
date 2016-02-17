@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
  
+  get 'static_pages/help'
+  get 'static_pages/home'
+
+  root :to => "users#index"
+  resources :user
+  resources :comments
+  resources :photos
+  
   get 'articles/index'
 
   get 'articles/new'
 
   get 'articles/edit'
-
   get 'articles/show'
   resources :articles
-  
+
   get 'comments/index'
 
   get 'comments/new'
@@ -18,10 +25,7 @@ Rails.application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   resources :users
   
-  root :to => "photos#index"
-  resources :photos
-  resources :comments
-  
+   
   # root :to => "articles#index"
       
   resources :sessions

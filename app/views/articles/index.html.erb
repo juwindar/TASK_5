@@ -4,7 +4,7 @@
 <%= link_to 'Log-in', new_session_path %>
 <% else %>
 Hello <%= current_user.username %>
-<%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
+<%= link_to 'Log-Out', new_session_path, method: "DELETE" %>
 <% end %>
 </h4>
 
@@ -12,17 +12,24 @@ Hello <%= current_user.username %>
 
 <p>
 <%= article.content.truncate(20) %>
-<%= link_to 'read more', article_path(article.id) %>
-</p>
 
+<ul class="btn btn-primary btn-lg" role="button">
+      <%= link_to 'read more', article_path(article.id) %>
+      </ul>
 <h4>status : <%= article.status %></h4>
 <hr/>
 
 <p>
-<span><%= link_to 'edit', edit_article_path(article.id) %><span>
+<ul class="label label-primary">
+<%= link_to 'edit', edit_article_path(article.id) %></ul>
 <span> | </span>
-<span><%= link_to 'delete', article_path(article.id), method: "DELETE", data: {confirm: 'Delete this data ? '} %><span>	
+
+<ul class="label label-danger">
+<%= link_to 'delete', article_path(article.id), method: "DELETE", data: {confirm: 'Delete this data ? '} %></ul>
 </p>
 
 
 <% end %>
+<%= will_paginate @articles %>
+
+

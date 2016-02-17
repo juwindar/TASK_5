@@ -1,17 +1,18 @@
- <%= form_tag sessions_path do %>
+<%= form_tag sessions_path do %>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<div class= "form-control">
 <%= label_tag :username %>
-
 <%= text_field_tag :username, (params[:username] unless params[:username].blank?) %>
-
-<br/>
-
 <%= label_tag :password %>
-
 <%= password_field_tag :password %>
 
-<br/>
-
-<%= submit_tag :submit %>
-
+</div>
+<br>
+<%= submit_tag :submit, class: "btn btn-primary" %>
 <% end %>
+
+<br>
+    <p>New user? <%= link_to "Sign up now!", sign_up_path %></p>
+ 
