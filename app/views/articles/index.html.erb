@@ -28,8 +28,6 @@ Hello <%= current_user.username %>
 <%= link_to 'delete', article_path(article.id), method: "DELETE", data: {confirm: 'Delete this data ? '} %></ul>
 </p>
 
-
+<%= link_to "Download this Document!", download_file_articles_path %>
 <% end %>
 <%= will_paginate @articles %>
-
-

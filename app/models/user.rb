@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   before_save :add_salt_and_hash
   
   
-  validates :username, presence: true, uniqueness: true
+    validates :username, presence: true, uniqueness: true
 
     validates :email, presence: true, uniqueness: true
 

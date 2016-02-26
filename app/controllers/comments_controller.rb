@@ -7,6 +7,9 @@ class CommentsController < ApplicationController
 
   def edit
   end
+  def show
+    
+  end
   
   before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy]
 

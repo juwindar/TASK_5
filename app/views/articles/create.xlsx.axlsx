@@ -1,0 +1,4 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
+  sheet.add_row ["First Column", "Second", "Third"]
+end

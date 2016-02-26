@@ -21,7 +21,6 @@
 <div class="row">
 	<div class="col-md-12">
 		<% @photos.each do |photo| %>
-			
 				<div class="grid-item grid-item--width2"</div>
 				<%= image_tag photo.photo.url, class: "grid-item" %>
 				<div><%= photo.title %></div>
@@ -35,7 +34,4 @@
       </div>
      <br> 
   <% end %>
-  </div>
-<br>
-
-<%= will_paginate @photos %>
+  <%= will_paginate @photos %>

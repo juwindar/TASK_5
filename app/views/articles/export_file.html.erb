@@ -1,0 +1,1 @@
+<%= link_to 'Export Data', @as_article ? export_articles_path + '?article=' + @article.id.to_s : export_articles_path(format: :xls), :class => 'btn btn-success', data: { no_turbolink: true } %>

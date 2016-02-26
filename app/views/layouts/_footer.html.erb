@@ -1,17 +1,14 @@
-<footer class="footer">
-  <small>
-    The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
-  </small>
-  <nav>
-     <ul class="nav navbar-nav">
-        <li><%= link_to 'About', about_path %></li>
-      </ul>
-    <ul class="nav navbar-nav">
-        <li><%= link_to 'Contact', contact_path %></li>
-      </ul>
-    <ul class="nav navbar-nav">
-        <li><a href="http://news.railstutorial.org/">News</a></li>
-      </ul>
- </nav>
+<nav class="navbar navbar-default navbar-bottom" style="padding:0 0 5px 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+	<%= link_to "TASK LIMA", root_path, id: "logo" %>
+		<ul class="nav navbar-nav">    
+       <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+  </div>
 </footer>
+

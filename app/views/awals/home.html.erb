@@ -1,0 +1,12 @@
+<% if !current_user %>
+
+<%= link_to 'Log-in', new_session_path %>
+<%= link_to 'Sign Up', new_session_path %>
+
+<% else %>
+
+Hello <%= current_user.username %>
+
+<%= link_to 'Log-Out', session_path(current_user.id), method: "DELETE" %>
+
+<% end %>

@@ -4,14 +4,14 @@
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 555px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
 }
 
 footer a {
-  color: #555;
+  color: #74F460;
 }
 
 footer a:hover {
@@ -30,4 +30,43 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #74F460;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+
+.navbar-bottom {
+margin-top: 450px;
+background-color: #fff;
+padding-top: 35px;
+color:#FFFFFF;
 }

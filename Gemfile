@@ -8,12 +8,20 @@ gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2' , '~> 0.3.18'
 gem 'sqlite3'
+gem 'axlsx_rails'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'humanizer'
+gem 'zip' 
+gem 'rubyzip'
+gem 'roo-xls'
+gem 'rubyXL'
+gem 'roo'
+gem 'spreadsheet', '~> 1.1', '>= 1.1.1'
+gem 'axlsx'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,7 +50,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

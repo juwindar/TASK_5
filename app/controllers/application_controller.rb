@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
         helper_method :current_user, :check_current_user
 
+        include SessionsHelper
+
 
         def current_user
 
@@ -22,7 +24,7 @@ class ApplicationController < ActionController::Base
             if current_user.blank?
 
                 flash[:error] = "plase login first before run the action"
-
+                session[:original_uri] = request.fullpath
                 redirect_to new_session_url
 
             else

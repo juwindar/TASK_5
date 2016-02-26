@@ -11,33 +11,50 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-
+  resources :sessions
   
-  resources :user
+  
+  get 'profile' => 'users#edit'
+  resources :users
   resources :comments
-  resources :photos
   
-  get 'articles/index'
+  get 'photos/index'
+  get 'photos/new'
+  get 'photos/show'
+  get 'photos/edit'
+  resources :photos
+ 
+  
+  # resources :articles do 
+    # collection do 
+    # get 'download-file' 
+   # end
+  # end
+#    
+  resources :articles do
+    collection do
 
-  get 'articles/new'
-
-  get 'articles/edit'
-  get 'articles/show'
-  resources :articles
-
-  get 'comments/index'
-
-  get 'comments/new'
-
-  get 'comments/edit'
+      get 'import-from-file'
+      
+      # post 'import'
+      post 'import/post' => 'articles#import', as: :import
+    end
+    collection do
+      get 'export-from-file'
+      post 'export/post' => 'articles#export', as: :export
+    end
+    collection do 
+    get 'download-file' 
+   end
+  end
 
   get "sign_up" => "users#new", :as => "sign_up"
-  resources :users
+  
   
    
   # root :to => "articles#index"
       
-  resources :sessions
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

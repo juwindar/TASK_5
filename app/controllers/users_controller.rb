@@ -9,36 +9,38 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def show
+    
+  end
 def create
 
-        @user = User.new(params_user)
+        username = params[:username]
 
-        if @user.save
+        password = params[:password]
 
-            begin
+        user = User.where("username =? and activation_status =?", username, "active").first
 
-                ConfirmationMailer.confirm_email("#{@user.email}", @user.activation_token).deliver
+        user_password = BCrypt::Engine.hash_secret(password, user.password_salt) unless user.blank?
 
-            rescue
+        if !user_password.blank? and user.password_hash.eql? user_password
 
-                flash[:notice] = "activation instruction fails send to your email"
+            session[:user] = user.id
 
-            end
-
-            flash[:notice] = "activation instruction has send to #{@user.email}"
+            flash[:notice] = "Wellcome #{user.username}"
 
             redirect_to root_url
 
         else
 
-            flash[:error] = "data not valid"
+            params[:username]
+
+            flash[:error] = "Your data not valid"
 
             render "new"
 
         end
 
     end
-
  private
 
         def params_user

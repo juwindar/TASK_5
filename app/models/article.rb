@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  
+  # acts_as_xlsx
   validates :title, presence: true,
                             length: { minimum: 5 }
   validates :content, presence: true,
@@ -8,4 +10,7 @@ class Article < ActiveRecord::Base
   scope :status_active, -> {where(status: 'active')}
 
   has_many :comments, dependent: :destroy
-end
+  
+  
+  end
+ 
