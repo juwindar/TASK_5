@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'products/index'
+
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :sessions
-  
+  resources :products
   
   get 'profile' => 'users#edit'
   resources :users

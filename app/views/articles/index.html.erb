@@ -1,3 +1,12 @@
+<%= form_tag articles_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <% @articles.each do |article| %>
 <h4>
 <% if !current_user %>
@@ -17,17 +26,15 @@ Hello <%= current_user.username %>
       <%= link_to 'read more', article_path(article.id) %>
       </ul>
 <h4>status : <%= article.status %></h4>
-<hr/>
-
 <p>
 <ul class="label label-primary">
 <%= link_to 'edit', edit_article_path(article.id) %></ul>
 <span> | </span>
-
 <ul class="label label-danger">
 <%= link_to 'delete', article_path(article.id), method: "DELETE", data: {confirm: 'Delete this data ? '} %></ul>
-</p>
-
+<p>
 <%= link_to "Download this Document!", download_file_articles_path %>
+</p>
+<hr/>
 <% end %>
 <%= will_paginate @articles %>

@@ -1,0 +1,28 @@
+<h1>Products</h1>
+<%= form_tag products_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link "name" %></th>
+      <th><%= sort_link "price" %></th>
+      <th><%= sort_link "created_at", "Added On" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= number_to_currency product.price %></td>
+        <td><%= product.created_at.strftime "%B %e, %Y" %></td>    
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @products %>

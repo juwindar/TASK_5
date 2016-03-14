@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  
+ 
   # acts_as_xlsx
   validates :title, presence: true,
                             length: { minimum: 5 }
@@ -11,6 +11,4 @@ class Article < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
   
-  
   end
- 

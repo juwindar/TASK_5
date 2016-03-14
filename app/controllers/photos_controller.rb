@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-
+  before_action :check_current_user, only: [:new, :create, :edit, :update, :destroy, :index]
   def index
     @photos = Photo.all
     @photos = Photo.paginate(:page => params[:page], :per_page => 5)

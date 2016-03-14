@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
     @articles = Article.status_active
     @articles = Article.all
     @articles = Article.paginate(:page => params[:page], :per_page => 5)
+    # @articles = Article.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
   end
 
   def new
